@@ -1,0 +1,28 @@
+#debug: true
+
+build:
+  image: armdrone/drone-plugin-base
+  commands:
+    - apk update && apk add tar gzip curl
+    - export ARCH=armv6l
+    - export VERSION=1.21.1
+#VERSION=latest
+    - export URL=https://busybox.net/downloads/binaries/${VERSION}/busybox-${ARCH}
+    - curl -L ${URL} > busybox-${ARCH}
+# https://raw.githubusercontent.com/docker/docker/master/contrib/mkimage-busybox.sh
+    - chmod +x mkimage-busybox.sh
+    - ./mkimage-busybox.sh busybox-${ARCH}
+    - ls -la
+
+publish:
+  docker:
+#    load: /drone/src/github.com/firecyberice/arm-alpine/temp.tar
+#    environment:
+#      - DOCKER_LAUNCH_DEBUG=true
+    username: $$DOCKER_USER
+    password: $$DOCKER_PASS
+    email: $$DOCKER_EMAIL
+    repo: firecyberice/armhf-busybox
+    tag: 
+      - latest
+      - 1.21.1
