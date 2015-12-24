@@ -3,7 +3,7 @@
 build:
   image: armdrone/drone-plugin-base
   commands:
-    - apk update && apk add tar gzip curl
+    - apk update && apk add tar gzip curl bash
     - export ARCH=armv6l
     - export VERSION=1.21.1
 #VERSION=latest

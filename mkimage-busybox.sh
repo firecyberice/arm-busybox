@@ -23,7 +23,7 @@ cd $ROOTFS
 
 mkdir bin etc dev dev/pts lib proc sys tmp
 touch etc/resolv.conf
-cp /etc/nsswitch.conf etc/nsswitch.conf
+#cp /etc/nsswitch.conf etc/nsswitch.conf
 echo root:x:0:0:root:/:/bin/sh > etc/passwd
 echo root:x:0: > etc/group
 ln -s lib lib64
