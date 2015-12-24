@@ -20,7 +20,7 @@ EOF
 
 rm -f "$dir/bin/busybox" # just in case
 cp "$busybox" "$dir/bin/busybox"
-chomod +x  "$dir/bin/busybox"
+chmod +x  "$dir/bin/busybox"
 
 (
         cd "$dir"
