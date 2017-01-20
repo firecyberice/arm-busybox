@@ -4,7 +4,7 @@ set -e
 #apk --update --no-cache add tar gzip curl bash
 ARCH=armv6l
 #VERSION=1.21.1
-VERSION=$(cat ../VERSION)
+VERSION=$(cat VERSION)
 
 
 URL=https://busybox.net/downloads/binaries/${VERSION}/busybox-${ARCH}
