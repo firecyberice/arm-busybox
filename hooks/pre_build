@@ -31,11 +31,16 @@ rm -f "$dir/bin/busybox" # just in case
 cp "$busybox" "$dir/bin/busybox"
 chmod +x  "$dir/bin/busybox"
 
+# hack x86 build env
+URL=https://busybox.net/downloads/binaries/${VERSION}/busybox-x86_64
+curl -L ${URL} > /busybox
+chmod +x  /busybox
+
 (
         cd "$dir"
 
         IFS=$'\n'
-        modules=( $(bin/busybox --list-modules) )
+        modules=( $(/busybox --list-modules) )
         unset IFS
 
         for module in "${modules[@]}"; do
