@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 set -e
 
+#apk --update --no-cache add tar gzip curl bash
+ARCH=armv6l
+VERSION=1.21.1
+
+URL=https://busybox.net/downloads/binaries/${VERSION}/busybox-${ARCH}
+curl -L ${URL} > busybox
+
 mkimg="$(basename "$0")"
 
 busybox=busybox
